@@ -61,13 +61,12 @@ void remove_all(char *str, char to_remove) {
 	char *read = str;
 	char *write = str;
 	while (*read) {
-		if (*read == to_remove) {
-			read++;
-			*write = *read;
+		if (*read != to_remove) {
+			*write++ = *read;
 		}
-		read++;
-		write++;
+		++read;
 	}
+	*write = '\0';
 }
 
 //opens process *cmd and stores output in *output
