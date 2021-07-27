@@ -17,7 +17,7 @@
 #define CMDLENGTH		50
 #define MIN( a, b ) ( ( a < b) ? a : b )
 #define STATUSLENGTH (LENGTH(blocks) * CMDLENGTH + 1 + \
-        LENGTH(leftpad) + LENGTH(rightpad))
+		LENGTH(leftpad) + LENGTH(rightpad))
 
 typedef struct {
 	char* icon;
@@ -78,7 +78,7 @@ void getcmd(const Block *block, char *output)
 		return;
 	int i = strlen(block->icon);
 	fgets(output+i, CMDLENGTH-i-delimLen, cmdf);
-    remove_all(output, '\n');
+	remove_all(output, '\n');
 	i = strlen(output);
 	if (i == 0) {
 		//return if block and command output are both empty
@@ -118,9 +118,9 @@ void getsigcmds(unsigned int signal)
 void setupsignals()
 {
 #ifndef __OpenBSD__
-	    /* initialize all real time signals with dummy handler */
-    for (int i = SIGRTMIN; i <= SIGRTMAX; i++)
-        signal(i, dummysighandler);
+		/* initialize all real time signals with dummy handler */
+	for (int i = SIGRTMIN; i <= SIGRTMAX; i++)
+		signal(i, dummysighandler);
 #endif
 
 	for (unsigned int i = 0; i < LENGTH(blocks); i++) {
@@ -139,7 +139,7 @@ int getstatus(char *str, char *last)
 	for (unsigned int i = 0; i < LENGTH(blocks); i++)
 		strcat(str, statusbar[i]);
 	str[strlen(str)-strlen(delim)] = '\0';
-    if (rightpad[0] != '\0')
+	if (rightpad[0] != '\0')
 		strcat(str, rightpad);
 	return strcmp(str, last);//0 if they are the same
 }
@@ -193,7 +193,7 @@ void statusloop()
 /* this signal handler should do nothing */
 void dummysighandler(int signum)
 {
-    return;
+	return;
 }
 #endif
 
