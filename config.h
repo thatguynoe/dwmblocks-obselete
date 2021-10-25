@@ -18,8 +18,8 @@ static const Block blocks[] = {
 };
 
 // Sets delimeter between status commands. NULL character ('\0') means no delimeter.
-static char delim[] = " | ";
-static unsigned int delimLen = 3;
+static char delim[] = " │ ";
+static unsigned int delimLen = 5;
 
 // Sets delimiters around the full statusbar. NULL character ('\0') means no delimeter.
 static char leftpad[]  = " ";
